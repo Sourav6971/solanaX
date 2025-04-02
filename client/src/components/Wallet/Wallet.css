@@ -1,0 +1,19 @@
+.connect-button {
+  background: linear-gradient(135deg, #4a90e2, #357abd); /* Gradient blue */
+  color: #ffffff; /* White */
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  margin: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.connect-button:hover {
+  background: linear-gradient(135deg, #357abd, #2a5f8e); /* Darker gradient */
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
