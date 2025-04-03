@@ -35,8 +35,8 @@
 .info-container .information {
   background: linear-gradient(
     135deg,
-    #4a90e2,
-    #6ec1e4
+    #6a11cb,
+    #2575fc
   ); /* Gradient background */
   border-radius: 12px; /* Rounded corners */
   padding: 20px; /* Padding inside the box */
@@ -51,7 +51,7 @@
   padding-bottom: 40px;
   word-wrap: break-word; /* Ensure long text wraps properly */
   animation: fadeIn 1s ease-in-out; /* Fade-in animation */
-  color: #dadadacf; /* White text for visibility */
+  color: #ffffffda; /* White text for visibility */
   position: relative; /* Position for the Solana icon */
 }
 
