@@ -15,3 +15,5 @@ app.get("/", (req: express.Request, res: express.Response): void => {
 
     res.json(responseBody);
 });
+
+app.listen(3000);
