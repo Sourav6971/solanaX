@@ -51,7 +51,7 @@
   padding-bottom: 40px;
   word-wrap: break-word; /* Ensure long text wraps properly */
   animation: fadeIn 1s ease-in-out; /* Fade-in animation */
-  color: #dadadacf; /* White text for visibility */
+  color: #ffffffda; /* White text for visibility */
   position: relative; /* Position for the Solana icon */
 }
 
