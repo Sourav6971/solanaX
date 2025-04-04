@@ -105,5 +105,5 @@ app.post("/create-token", async (req: express.Request, res: express.Response):Pr
 
 
 app.listen(PORT,()=>{
-    console.log("App listening on port"+PORT)
+    console.log("App listening on port "+PORT)
 });
