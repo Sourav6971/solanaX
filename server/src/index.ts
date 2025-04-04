@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 
-app.get("/", ( res:express.Response)=> {
+app.get("/", (req: express.Request, res: express.Response) => {
     interface ResponseBody {
         msg: string;
     }
