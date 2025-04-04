@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { createToken } from "./solana/createToken"; 
 import { PrismaClient } from "@prisma/client";
+const PORT = process.env.PORT||3000;
 
 const client= new PrismaClient();
 
@@ -103,6 +104,6 @@ app.post("/create-token", async (req: express.Request, res: express.Response):Pr
 });
 
 
-app.listen(process.env.PORT,()=>{
-    console.log("App listening on port 3000")
+app.listen(PORT,()=>{
+    console.log("App listening on port"+PORT)
 });
