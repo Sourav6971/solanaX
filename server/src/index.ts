@@ -51,14 +51,6 @@ catch(err){
     
 })
 
-
-
-
-
-
-
-
-
 app.post("/create-token", async (req: express.Request, res: express.Response):Promise<void> => {
     try {
         const { publicKey,tokenName } = req.body;
@@ -110,6 +102,7 @@ app.post("/create-token", async (req: express.Request, res: express.Response):Pr
     }
 });
 
-app.listen(3000,()=>{
+
+app.listen(process.env.PORT,()=>{
     console.log("App listening on port 3000")
 });
