@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { createToken } from "./solana/createToken"; 
 import { PrismaClient } from "@prisma/client";
+import { getAirdrop } from "./solana/getAirdrop";
 
 const PORT = process.env.PORT||3000;
 
@@ -151,6 +152,27 @@ app.post("/get-token",async (req,res)=>{
     });
     return;
 })
+
+app.post("/get-airdrop",async(req,res)=>{
+   const {publicKey,amount}= req.body;
+
+   try{
+    await getAirdrop(publicKey,amount);
+    res.json({
+        msg:"Airdrop Successfull"
+    });
+    return;
+   }
+   catch(err){
+    res.status(500).json({
+        msg:"Internal server error"
+    });
+    return;
+   }
+})
+
+
+
 
 
 app.listen(PORT,()=>{

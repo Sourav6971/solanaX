@@ -18,17 +18,12 @@ const Airdrop: React.FC = () => {
 
   const handleAirdrop = () => {
     setIsAirdropping(true);
-
-    // Simulate an airdrop completion after 3 seconds
-    setTimeout(() => {
-      setIsAirdropping(false);
-    }, 3000);
   };
 
   return (
     <>
       <div className="container">
-        <input type="text" placeholder="Enter address" />
+        <input type="text" placeholder="0.001" />
 
         <button className="airdrop-btn" onClick={handleAirdrop}>
           {isAirdropping ? "Airdropping..." : "Airdrop SOL"}
