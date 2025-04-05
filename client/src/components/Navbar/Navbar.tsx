@@ -4,9 +4,11 @@ import { Menu, X } from "lucide-react";
 import { SiSolana } from "react-icons/si";
 
 import "./Navbar.css";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const menuItems = ["About", "Home", "Login"];
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -19,14 +21,20 @@ const Navbar = () => {
         {/* Desktop and Medium Screen Menu */}
         <div className="menu">
           {menuItems.map((value, index) => (
-            <div key={index} className="menu-item">
+            <div
+              key={index}
+              className="menu-item"
+              onClick={() => {
+                navigate(`/${value}`);
+              }}
+            >
               {value}
             </div>
           ))}
         </div>
 
         {/* Wallet Button */}
-        <div className="wallet">
+        <div className="wallet" onClick={() => navigate("/Home")}>
           <Wallet />
         </div>
 

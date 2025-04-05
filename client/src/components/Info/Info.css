@@ -1,16 +1,16 @@
 .info-container {
   position: fixed;
   left: 20px;
-  top: 130px;
+  top: 150px;
   margin-left: 20px;
   min-height: 70%;
-  width: 300px;
+  width: 350px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 
-  background: rgba(255, 255, 255, 0.2); /* Slightly opaque background */
+  background: rgba(255, 255, 255, 0.098); /* Slightly opaque background */
   border-radius: 16px; /* Rounded corners */
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
   backdrop-filter: blur(12px); /* Enhanced glassmorphism blur effect */
@@ -39,10 +39,10 @@
     #2575fc
   ); /* Gradient background */
   border-radius: 12px; /* Rounded corners */
-  padding: 20px; /* Padding inside the box */
+  padding: 15px; /* Padding inside the box */
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
   font-family: "Montserrat", sans-serif; /* Bold and modern font for titles */
-  font-size: 18px; /* Font size for text */
+  font-size: 17px; /* Font size for text */
   font-weight: 600; /* Bold font weight */
   line-height: 1.8; /* Better line spacing */
   text-align: left; /* Align text to the left */
@@ -56,6 +56,7 @@
 }
 
 .info-container .information div {
+  display: flex;
   padding-top: 10 px;
 }
 
@@ -106,4 +107,10 @@
   .info-container .option-container {
     margin-top: 40px;
   }
+}
+
+.copy-button {
+  margin-left: 10px;
+  padding-top: 8px;
+  cursor: pointer;
 }

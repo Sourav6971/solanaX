@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif; /* Modern font */
-  background: linear-gradient(135deg, #030129, #0e327a, #17a3f9, #c0eaff);
+  background: linear-gradient(135deg, #100d44db, #082f7d, #17a3f9, #c0eaff);
 
   background-size: 400% 400%; /* Smooth gradient animation */
 
