@@ -90,13 +90,17 @@ app.post("/create-token", async (req: express.Request, res: express.Response):Pr
             return;
         }
 
-        await client.mintAccount.create({
+       const account=  await client.mintAccount.create({
             data: {
                 mint_address: mint,
                 user_id: user.id,
                 token_name:tokenName
-            }
+            },
+          
         });
+       
+        if(!account.user_id)
+            throw new Error();
          res.status(200).json({
             msg: "Token created successfully",
             mint

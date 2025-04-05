@@ -7,7 +7,7 @@ import "./Navbar.css";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const menuItems = ["About", "Home", "Login"];
+  const menuItems = ["Home", "About", "Login"];
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 

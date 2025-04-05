@@ -30,6 +30,11 @@ const Info = () => {
     switch (value) {
       case "Request Airdrop": {
         navigate("/Airdrop");
+        break;
+      }
+      case "Mint Tokens": {
+        navigate("/Create");
+        break;
       }
     }
   };

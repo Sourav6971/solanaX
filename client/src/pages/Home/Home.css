@@ -3,7 +3,6 @@ body {
   padding: 0;
   font-family: "Poppins", sans-serif; /* Modern font */
   background: linear-gradient(135deg, #100d44db, #082f7d, #17a3f9, #c0eaff);
-
   background-size: 400% 400%; /* Smooth gradient animation */
 
   color: #ffffff; /* White text for contrast */
@@ -21,36 +20,43 @@ p {
 }
 
 .home-container {
-  margin-top: 150px; /* Set margin to 100px from the top */
+  margin-top: 150px; /* Set margin to 150px from the top */
   margin-left: 300px;
-  min-height: 500px;
+  height: 500px; /* Fixed height for consistent layout */
+  width: 800px; /* Fixed width for consistent layout */
   padding: 20px;
   font-family: Arial, sans-serif;
   background-color: #f9f9f924;
-
-  min-width: 60%; /* Adjust width for better responsiveness */
   box-sizing: border-box; /* Include padding and border in dimensions */
   border-radius: 10px;
   position: relative; /* Ensure the container stays in place */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
 }
 
 h1 {
   text-align: center;
+  position: fixed;
+  top: 180px;
   margin-bottom: 20px;
   color: #ffffff;
 }
 
 .token-table {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  margin-top: 20px; /* Add spacing between the table and other elements */
+  min-width: 700px;
+  min-height: 250px;
+  margin: 0 auto; /* Center horizontally */
+  margin-top: 0; /* Reset top margin */
+  position: absolute; /* Position relative to the parent container */
+  top: 50%; /* Move to the vertical center */
+  left: 50%; /* Move to the horizontal center */
+  transform: translate(-50%, -50%); /* Adjust for element's own dimensions */
   border-collapse: collapse;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
-  position: relative; /* Ensure the table grows downward */
 }
 
 .token-table th,
@@ -82,4 +88,81 @@ h1 {
 
 .token-table td:first-child {
   font-weight: bold;
+}
+.loading-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute; /* Position relative to the parent container */
+  top: 50%; /* Move to the vertical center */
+  left: 50%; /* Move to the horizontal center */
+  transform: translate(-50%, -50%); /* Adjust for element's own dimensions */
+  text-align: center; /* Center text inside the div */
+}
+
+@media (max-width: 1100px) {
+  .home-container {
+    margin-top: 200px;
+    margin-left: 20px;
+    width: 90%;
+    height: auto; /* Allow height to adjust dynamically */
+    padding: 15px;
+    flex-direction: column; /* Stack components vertically */
+    align-items: stretch; /* Stretch components to fill width */
+  }
+
+  .token-table {
+    min-width: 100%;
+    font-size: 12px; /* Adjust font size for smaller screens */
+    margin-top: 250px; /* Add spacing between stacked components */
+  }
+
+  .token-table th,
+  .token-table td {
+    padding: 8px 10px;
+  }
+
+  h1 {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto; /* Center horizontally */
+    width: 90%;
+    height: auto; /* Allow height to adjust dynamically */
+    padding: 15px;
+    flex-direction: column; /* Stack components vertically */
+    align-items: center; /* Center components */
+  }
+
+  .token-table {
+    margin-top: 20px; /* Add spacing between stacked components */
+  }
+
+  h1 {
+    margin-bottom: 10px; /* Add spacing below the heading */
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto; /* Center horizontally */
+    padding: 10px;
+    flex-direction: column; /* Ensure stacking on smaller screens */
+    align-items: center; /* Center components */
+  }
+
+  .token-table {
+    margin-top: 15px; /* Adjust spacing for smaller screens */
+  }
+
+  h1 {
+    margin-bottom: 8px; /* Adjust spacing below the heading */
+  }
 }
