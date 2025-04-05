@@ -33,7 +33,6 @@ async function connectWallet({
       await provider.disconnect();
       setAccount({ publicKey: "", balance: "" });
       setConnected(false);
-      setLoading(false);
     } else {
       try {
         // Connect wallet
@@ -53,9 +52,10 @@ async function connectWallet({
         setAccount(accountData);
 
         setConnected(true);
-        setLoading(false);
       } catch (err) {
         alert("Error connecting wallet:");
+      } finally {
+        setLoading(false);
       }
     }
   } else {
