@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { createToken } from "./solana/createToken"; 
 import { PrismaClient } from "@prisma/client";
+import { getAirdrop } from "./solana/getAirdrop";
 
 const PORT = process.env.PORT||3000;
 
@@ -89,13 +90,17 @@ app.post("/create-token", async (req: express.Request, res: express.Response):Pr
             return;
         }
 
-        await client.mintAccount.create({
+       const account=  await client.mintAccount.create({
             data: {
                 mint_address: mint,
                 user_id: user.id,
                 token_name:tokenName
-            }
+            },
+          
         });
+       
+        if(!account.user_id)
+            throw new Error();
          res.status(200).json({
             msg: "Token created successfully",
             mint
@@ -151,6 +156,27 @@ app.post("/get-token",async (req,res)=>{
     });
     return;
 })
+
+app.post("/get-airdrop",async(req,res)=>{
+   const {publicKey,amount}= req.body;
+
+   try{
+    await getAirdrop(publicKey,amount);
+    res.json({
+        msg:"Airdrop Successfull"
+    });
+    return;
+   }
+   catch(err){
+    res.status(500).json({
+        msg:"Internal server error"
+    });
+    return;
+   }
+})
+
+
+
 
 
 app.listen(PORT,()=>{

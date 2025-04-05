@@ -92,18 +92,18 @@
 
 @media (max-width: 768px) {
   .info-container {
-    position: relative; /* Remove fixed positioning for small devices */
-    top: 80px;
-    left: 5px;
-    margin: 20px; /* Center the container horizontally and add vertical margin */
-    width: 300px; /* Keep the same width as large screens */
-    min-height: 500px; /* Keep the same height as large screens */
+    position: absolute; /* Allow centering */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position to center */
+    width: 300px;
+    min-height: 500px;
     display: flex;
     flex-direction: column;
-
     justify-content: center; /* Center content vertically */
     align-items: center; /* Center content horizontally */
   }
+
   .info-container .option-container {
     margin-top: 40px;
   }

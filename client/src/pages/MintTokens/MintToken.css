@@ -58,18 +58,16 @@
 
 @media (max-width: 1200px) {
   .container {
-    width: 90%; /* Adjust width for responsiveness */
+    margin-top: 100px;
+    position: relative;
+    right: 80px;
+    width: 90%;
     padding: 15px;
-    display: flex; /* Center components */
-    justify-content: center;
-    align-items: center;
-    position: fixed; /* Remove absolute positioning */
-    top: 600px; /* Reset top positioning */
-    transform: unset; /* Reset transform */
   }
 
   .container input {
     font-size: 16px;
+
     height: 25px;
   }
 
@@ -80,5 +78,27 @@
   .airdrop-btn {
     font-size: 16px;
     padding: 10px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin-top: 50px;
+    margin-left: 10px;
+    padding: 10px;
+  }
+
+  .container input {
+    font-size: 14px;
+    height: 20px;
+  }
+
+  .container input::placeholder {
+    font-size: 14px;
+  }
+
+  .airdrop-btn {
+    font-size: 14px;
+    padding: 8px 10px;
   }
 }

@@ -3,6 +3,7 @@ import "./Wallet.css";
 
 import { StateType, useAccount, Account } from "../../store/store";
 import { SetStateAction, useState } from "react";
+import Loader from "../Loader/Loader";
 
 declare global {
   interface Window {
@@ -14,21 +15,25 @@ interface ConnectionType {
   connected: boolean;
   setConnected: React.Dispatch<SetStateAction<boolean>>;
   setAccount: (state: Account) => void;
+  setLoading: React.Dispatch<SetStateAction<boolean>>;
 }
 
 async function connectWallet({
   connected,
   setConnected,
   setAccount,
+  setLoading,
 }: ConnectionType) {
   const provider = window.solana;
 
   if (provider && provider.isPhantom) {
+    setLoading(true);
     if (connected) {
       // Disconnect wallet
       await provider.disconnect();
       setAccount({ publicKey: "", balance: "" });
       setConnected(false);
+      setLoading(false);
     } else {
       try {
         // Connect wallet
@@ -48,6 +53,7 @@ async function connectWallet({
         setAccount(accountData);
 
         setConnected(true);
+        setLoading(false);
       } catch (err) {
         alert("Error connecting wallet:");
       }
@@ -60,14 +66,23 @@ async function connectWallet({
 const Wallet = () => {
   const setAccount = useAccount((state) => (state as StateType).setAccount);
   const [connected, setConnected] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   return (
     <button
       className="connect-button"
-      onClick={() => connectWallet({ connected, setConnected, setAccount })}
+      onClick={() =>
+        connectWallet({ connected, setConnected, setAccount, setLoading })
+      }
     >
-      <div>{connected ? "Disconnect" : "Connect"}</div>
-      <img src="/Phantom.svg" height={30} />
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <div>{connected ? "Disconnect" : "Connect"}</div>
+          <img src="/Phantom.svg" height={30} />
+        </>
+      )}
     </button>
   );
 };

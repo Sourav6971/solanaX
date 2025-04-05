@@ -4,13 +4,15 @@ import "./Airdrop.css";
 
 import { StateType, useAccount } from "../../store/store";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { BACKEND_URL } from "../../config";
 
 const Airdrop: React.FC = () => {
+  const [amount, setAmount] = useState("");
   const account = useAccount((state) => (state as StateType).account);
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log(account.publicKey);
     if (account.publicKey === "") navigate("/Home");
   }, [account]);
 
@@ -18,17 +20,30 @@ const Airdrop: React.FC = () => {
 
   const handleAirdrop = () => {
     setIsAirdropping(true);
-
-    // Simulate an airdrop completion after 3 seconds
-    setTimeout(() => {
-      setIsAirdropping(false);
-    }, 3000);
+    axios
+      .post(BACKEND_URL + "get-airdrop", {
+        publicKey: account.publicKey,
+        amount,
+      })
+      .then(() => {
+        alert("Airdrop successfull!");
+      })
+      .catch(() => {
+        alert("Could not airdrop");
+      })
+      .finally(() => {
+        setIsAirdropping(false);
+      });
   };
 
   return (
     <>
       <div className="container">
-        <input type="text" placeholder="Enter address" />
+        <input
+          type="text"
+          placeholder="0.001"
+          onChange={(e) => setAmount(e.target.value)}
+        />
 
         <button className="airdrop-btn" onClick={handleAirdrop}>
           {isAirdropping ? "Airdropping..." : "Airdrop SOL"}
