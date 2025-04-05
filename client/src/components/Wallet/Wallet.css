@@ -1,19 +1,36 @@
 .connect-button {
-  background: linear-gradient(135deg, #4a90e2, #357abd); /* Gradient blue */
+  background: #9587df;
   color: #ffffff; /* White */
   border: none;
   border-radius: 12px;
-  padding: 12px 24px;
   margin: 4px;
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-items: center;
 }
 
 .connect-button:hover {
-  background: linear-gradient(135deg, #357abd, #2a5f8e); /* Darker gradient */
   transform: scale(1.1);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+.connect-button img {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.connect-button div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 14px 0px 0px 10px;
+
+  height: 100%;
+  line-height: normal; /* Reset line-height */
+  flex: 1; /* Ensures the div takes up available space for proper centering */
 }

@@ -39,7 +39,6 @@ async function connectWallet({
       await provider.disconnect();
       setAccount({ publicKey: "", balance: "" });
       setConnected(false);
-      alert("Wallet Disconnected!");
     } else {
       try {
         // Connect wallet
@@ -57,7 +56,7 @@ async function connectWallet({
         };
 
         setAccount(accountData);
-        alert("Wallet connected successfully!");
+
         setConnected(true);
       } catch (err) {
         alert("Error connecting wallet:");
@@ -77,7 +76,8 @@ const Wallet = () => {
       className="connect-button"
       onClick={() => connectWallet({ connected, setConnected, setAccount })}
     >
-      {connected ? "Disconnect" : "Connect"}
+      <div>{connected ? "Disconnect" : "Connect"}</div>
+      <img src="../../../public/Phantom.svg" height={30} />
     </button>
   );
 };
