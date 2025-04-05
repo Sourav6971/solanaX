@@ -27,6 +27,7 @@ const Airdrop: React.FC = () => {
       })
       .then(() => {
         alert("Airdrop successfull!");
+        navigate("/Home");
       })
       .catch(() => {
         alert("Could not airdrop");
