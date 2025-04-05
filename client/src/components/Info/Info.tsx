@@ -1,15 +1,10 @@
-import { useAccount } from "../../store/store";
+import { useAccount, Account } from "../../store/store";
 import { FiCopy } from "react-icons/fi";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { useState } from "react";
 
 import "./Info.css";
 import { useNavigate } from "react-router-dom";
-
-interface Account {
-  publicKey: string;
-  balance: string;
-}
 
 const Info = () => {
   const options = [

@@ -1,18 +1,8 @@
 import { Connection, PublicKey, clusterApiUrl } from "@solana/web3.js";
 import "./Wallet.css";
 
-import { useAccount } from "../../store/store";
+import { StateType, useAccount, Account } from "../../store/store";
 import { SetStateAction, useState } from "react";
-
-interface Account {
-  publicKey: string;
-  balance: string;
-}
-
-interface AccountState {
-  account: Account;
-  setAccount: (state: Account) => { set(): void };
-}
 
 declare global {
   interface Window {
@@ -68,7 +58,7 @@ async function connectWallet({
 }
 
 const Wallet = () => {
-  const setAccount = useAccount((state) => (state as AccountState).setAccount);
+  const setAccount = useAccount((state) => (state as StateType).setAccount);
   const [connected, setConnected] = useState(false);
 
   return (

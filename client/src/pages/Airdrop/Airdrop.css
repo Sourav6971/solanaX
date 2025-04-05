@@ -1,0 +1,52 @@
+.container {
+  width: 400px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  position: relative;
+}
+
+.container input {
+  outline: none;
+  border: none;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 14px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  height: 30px;
+  width: 80%;
+}
+
+.container input::placeholder {
+  align-self: center;
+  color: rgba(255, 255, 255, 0.639); /* Set placeholder font color */
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.airdrop-btn {
+  background-color: rgba(0, 128, 0, 0.8);
+  color: white;
+  font-size: 20px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  padding: 12px 20px;
+  font-weight: 500;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.airdrop-btn:hover {
+  background-color: rgba(0, 128, 0, 1);
+  transform: scale(1.05);
+}

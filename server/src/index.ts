@@ -111,7 +111,7 @@ app.post("/create-token", async (req: express.Request, res: express.Response):Pr
     }
 });
 
-app.get("/get-token",async (req,res)=>{
+app.post("/get-token",async (req,res)=>{
     const {publicKey}= req.body;
 
     const user = await client.user.findUnique({

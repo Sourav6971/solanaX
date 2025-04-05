@@ -1,16 +1,7 @@
 // Toast.js
 import { useEffect, useState } from "react";
 import "./Toast.css";
-import { useAccount } from "../../store/store";
-
-interface Account {
-  publicKey: string;
-  balance: string;
-}
-interface StateType {
-  account: Account;
-  setAccount: (state: Account) => void;
-}
+import { useAccount, StateType } from "../../store/store";
 
 const Toast = () => {
   const [visible, setVisible] = useState(true);
