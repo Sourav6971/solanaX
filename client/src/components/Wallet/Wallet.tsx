@@ -77,7 +77,7 @@ const Wallet = () => {
       onClick={() => connectWallet({ connected, setConnected, setAccount })}
     >
       <div>{connected ? "Disconnect" : "Connect"}</div>
-      <img src="../../../public/Phantom.svg" height={30} />
+      <img src="/Phantom.svg" height={30} />
     </button>
   );
 };

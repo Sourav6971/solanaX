@@ -3,11 +3,11 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.164);
   backdrop-filter: blur(10px);
   color: #ffffff;
   padding: 15px 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 12px rgba(0, 0, 0, 0.4);
   z-index: 1000;
 }
 
