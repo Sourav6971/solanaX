@@ -1,8 +1,12 @@
 import {create} from 'zustand'
 
-interface Account{
+export interface Account{
     balance:string,
     publicKey:string
+}
+export interface StateType{
+    account:Account,
+    setAccount:(state:Account)=>void;
 }
 
 
