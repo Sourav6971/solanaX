@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { createToken } from "./solana/createToken"; 
 import { PrismaClient } from "@prisma/client";
+
 const PORT = process.env.PORT||3000;
 
 const client= new PrismaClient();
@@ -53,8 +54,15 @@ catch(err){
 })
 
 app.post("/create-token", async (req: express.Request, res: express.Response):Promise<void> => {
+
+    
     try {
         const { publicKey,tokenName } = req.body;
+        if(!publicKey||!tokenName)
+        {
+        res.json({
+    msg:"Enter the token name and your public address"});
+    return;}
         const mint = await createToken(publicKey);
 
         if (!mint) {
@@ -102,6 +110,47 @@ app.post("/create-token", async (req: express.Request, res: express.Response):Pr
         return;
     }
 });
+
+app.get("/get-token",async (req,res)=>{
+    const {publicKey}= req.body;
+
+    const user = await client.user.findUnique({
+        where: {
+            publicKey
+        },
+        select: {
+            id: true
+        }
+    });
+
+    if (!user) {
+        res.status(404).json({
+            msg: "User not found"
+        });
+        return;
+    }
+
+    const tokens = await client.mintAccount.findMany({
+        where: {
+            user_id: user.id
+        },
+        select:{
+            token_name:true,
+            mint_address:true
+        }
+    });
+    if(!tokens){
+        res.status(404).json({
+            msg:"No tokens created for the user"
+        });
+        return;
+    }
+
+    res.status(200).json({
+        tokens
+    });
+    return;
+})
 
 
 app.listen(PORT,()=>{

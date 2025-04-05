@@ -19,7 +19,6 @@ export const createToken=async(userPublicKey:string,)=>{
             null,
             9
         );
-        console.log("Mint created successfully",mint.toBase58());
         const mintAddress= mint.toBase58();
         return(mintAddress);
     }
