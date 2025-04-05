@@ -1,0 +1,43 @@
+/* Toast.css */
+.toast {
+  height: 50px;
+  width: 200px;
+  align-items: center;
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
+  background-color: var(--toast-color, red);
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  opacity: 1;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.toast.green {
+  background: linear-gradient(90deg, #0b7130, #1db954);
+}
+
+.toast.red {
+  background: linear-gradient(90deg, #d32f2f, #ff5252);
+}
+
+.toast.slide-in {
+  transform: translateX(0);
+  opacity: 1;
+  width: 220px;
+  height: 60px;
+}
+
+.toast.slide-out {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+.message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
